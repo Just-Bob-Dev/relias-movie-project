@@ -17,12 +17,9 @@ export default class MovieBox extends Component {
     }
   }
 
-  handleApiFetch(searchValue) {
+  handleApiFetch(searchValue, searchType) {
     console.log(searchValue);
     if(searchValue === null){
-      // fetch('https://api.themoviedb.org/3/search/movie?api_key=a6d6e1a1d196277d3a36371310c4ff91&language=en-US&query=rush%20hour&page=1&include_adult=false')
-      // .then(resp => resp.json())
-      // .then(resp => {
         this.setState({searchResults: null});
         console.log(this.state.searchResults);
     }

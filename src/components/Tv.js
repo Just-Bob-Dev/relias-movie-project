@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import logo from '../logo.svg';
 import '../styles/App.css';
-import MovieBox from './movies/MovieBox.js';
+import tvBox from './tv/tvBox.js';
 
-class App extends Component {
+class Tv extends Component {
   render() {
     return (
       <div className="App">
-        <MovieBox />
+        <tvBox />
       </div>
     );
   }
 }
 
-export default App;
+export default Tv;

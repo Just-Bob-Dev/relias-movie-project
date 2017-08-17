@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../styles/App.css';
+import '../../styles/App.css';
 
 export default class MovieCard extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ export default class MovieCard extends Component {
     let results = this.props.results;
     //checks if fetch was null.
     console.log("results: " + results);
-    if(results === null || results.length === 0){
+    if(results === null || results === undefined ){
       return(
         <div>
           <h1>Im Sorry there is no content</h1>
