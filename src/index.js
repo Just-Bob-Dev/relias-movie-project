@@ -17,9 +17,6 @@ import Tv from './components/Tv';
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
-      <Route path="/movie_search" component={App} />
-      <Route path="/actor" component={Actor} />
-      <Route path="/tv" component={Tv} />
       <Route path="/" component={Home} />
     </Switch>
   </BrowserRouter>,

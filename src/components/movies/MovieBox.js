@@ -6,8 +6,8 @@ import MovieForm from './MovieForm.js';
 //https://api.themoviedb.org/3/movie/550?api_key=a6d6e1a1d196277d3a36371310c4ff91
 //apiKey: "a6d6e1a1d196277d3a36371310c4ff91"
 export default class MovieBox extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.handleApiFetch = this.handleApiFetch.bind(this);
 
@@ -24,7 +24,7 @@ export default class MovieBox extends Component {
         console.log(this.state.searchResults);
     }
     else{
-      fetch('https://api.themoviedb.org/3/search/movie?api_key=a6d6e1a1d196277d3a36371310c4ff91&language=en-US&query=' + searchValue + '&page=1&include_adult=false')
+      fetch('https://api.themoviedb.org/3/search/'+ this.props.props +'?api_key=a6d6e1a1d196277d3a36371310c4ff91&language=en-US&query=' + searchValue + '&page=1&include_adult=false')
       .then(resp => resp.json())
       .then(resp => {
         this.setState({searchResults: resp.results});
