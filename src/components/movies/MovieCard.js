@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import '../styles/App.css';
+import '../../styles/App.css';
 
 export default class MovieCard extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       //base url for displaying images. Fetch only return path after this.
-      imageBaseUrl: "https://image.tmdb.org/t/p/w300_and_h450_bestv2"
+      imageBaseUrl: "https://image.tmdb.org/t/p/w300_and_h450_bestv2",
+      mappedResults: []
     }
 }
 
@@ -14,7 +16,7 @@ export default class MovieCard extends Component {
     let results = this.props.results;
     //checks if fetch was null.
     console.log("results: " + results);
-    if(results === null || results.length === 0){
+    if(results === null || results === undefined ){
       return(
         <div>
           <h1>Im Sorry there is no content</h1>
@@ -49,20 +51,14 @@ export default class MovieCard extends Component {
             </div>
           </div>
         )
-      })
+      }
+    )
+
     return(
       <div>
-        {results.length < 0 ? (
-          <div>
-            <h1>Im sorry we seem to be missing that title</h1>
-          </div>
-        ) : (
-
           <div className="card-deck">
             {movie_card}
           </div>
-
-      )}
       </div>
     )
   }

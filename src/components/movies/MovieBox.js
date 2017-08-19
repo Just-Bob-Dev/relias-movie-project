@@ -6,8 +6,8 @@ import MovieForm from './MovieForm.js';
 //https://api.themoviedb.org/3/movie/550?api_key=a6d6e1a1d196277d3a36371310c4ff91
 //apiKey: "a6d6e1a1d196277d3a36371310c4ff91"
 export default class MovieBox extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.handleApiFetch = this.handleApiFetch.bind(this);
 
@@ -17,17 +17,15 @@ export default class MovieBox extends Component {
     }
   }
 
-  handleApiFetch(searchValue) {
+  handleApiFetch(searchValue, searchType) {
     console.log(searchValue);
     if(searchValue === null){
-      // fetch('https://api.themoviedb.org/3/search/movie?api_key=a6d6e1a1d196277d3a36371310c4ff91&language=en-US&query=rush%20hour&page=1&include_adult=false')
-      // .then(resp => resp.json())
-      // .then(resp => {
         this.setState({searchResults: null});
         console.log(this.state.searchResults);
     }
-    else{
-      fetch('https://api.themoviedb.org/3/search/movie?api_key=a6d6e1a1d196277d3a36371310c4ff91&language=en-US&query=' + searchValue + '&page=1&include_adult=false')
+    else
+    {
+      fetch('https://api.themoviedb.org/3/search/'+ this.props.theFetch +'?api_key=a6d6e1a1d196277d3a36371310c4ff91&language=en-US&query=' + searchValue + '&page=1&include_adult=false')
       .then(resp => resp.json())
       .then(resp => {
         this.setState({searchResults: resp.results});
@@ -44,9 +42,8 @@ export default class MovieBox extends Component {
   render() {
     return(
       <div className="movieBox container">
-        <h1>NotFlix</h1>
         <MovieForm handleApiFetch={this.handleApiFetch} />
-        <MovieCard results={this.state.searchResults} />
+        <MovieCard results={this.state.searchResults} theFetch={this.props.theFetch} />
       </div>
     )
   }
