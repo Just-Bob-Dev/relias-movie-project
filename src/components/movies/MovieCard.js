@@ -37,7 +37,7 @@ export default class MovieCard extends Component {
         }
         return (
           <div key={movie.id} className="card col-lg-4">
-            <img className="card-img-top" src={movie_image} alt={"Poster of " + movie.title} />
+            <img className="card-img-top" src={movie_image} alt={"Poster of " + movie.title} style={{height: 450 +"px", width: 300 + "px"}}/>
             <div className="card-block">
               <h1 className="card-title">Title: {movie.title}</h1>
               <p className="card-text">Popularity: {movie_rating}</p>

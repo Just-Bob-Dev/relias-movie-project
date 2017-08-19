@@ -14,10 +14,10 @@ export default class Home extends Component {
     this.handleButtonClick = this.handleButtonClick.bind(this);
 
     this.state = {
-      movie_selected: true,
+      movie_selected: false,
       tv_selected: false,
       actor_selected: false,
-      theFetch: null,
+      theFetch: 'movie',
       fetch: {
         movie: 'movie',
         tv: 'tv',
