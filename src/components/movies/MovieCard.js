@@ -4,9 +4,11 @@ import '../../styles/App.css';
 export default class MovieCard extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       //base url for displaying images. Fetch only return path after this.
-      imageBaseUrl: "https://image.tmdb.org/t/p/w300_and_h450_bestv2"
+      imageBaseUrl: "https://image.tmdb.org/t/p/w300_and_h450_bestv2",
+      mappedResults: []
     }
 }
 
@@ -49,20 +51,14 @@ export default class MovieCard extends Component {
             </div>
           </div>
         )
-      })
+      }
+    )
+
     return(
       <div>
-        {results.length < 0 ? (
-          <div>
-            <h1>Im sorry we seem to be missing that title</h1>
-          </div>
-        ) : (
-
           <div className="card-deck">
             {movie_card}
           </div>
-
-      )}
       </div>
     )
   }

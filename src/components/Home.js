@@ -8,14 +8,13 @@ export default class Home extends Component {
   constructor(props) {
     super(props);
 
-    this.getSelectedForm = this.getSelectedForm.bind(this);
     this.handleMovieSelection = this.handleMovieSelection.bind(this);
     this.handleTvSelection = this.handleTvSelection.bind(this);
     this.handleActorSelection = this.handleActorSelection.bind(this);
     this.handleButtonClick = this.handleButtonClick.bind(this);
 
     this.state = {
-      movie_selected: false,
+      movie_selected: true,
       tv_selected: false,
       actor_selected: false,
       theFetch: null,
@@ -51,22 +50,6 @@ export default class Home extends Component {
       console.log(this.state);
   }
 
-  getSelectedForm() {
-    if(this.state.theFetch === null){
-      return(
-        <div className="search-container">
-          <h1>Please select an option to search by.</h1>
-        </div>
-      )
-    }
-    else{
-      return(
-        <div className="search-container">
-
-        </div>
-      )
-    }
-  }
 
 
   render() {
@@ -84,8 +67,7 @@ export default class Home extends Component {
             </div>
           </div>
           <div>
-            <h1>Your here</h1>
-            <MovieBox props={this.state.theFetch} />
+            <MovieBox theFetch={this.state.theFetch} />
           </div>
         </div>
     )

@@ -23,8 +23,9 @@ export default class MovieBox extends Component {
         this.setState({searchResults: null});
         console.log(this.state.searchResults);
     }
-    else{
-      fetch('https://api.themoviedb.org/3/search/'+ this.props.props +'?api_key=a6d6e1a1d196277d3a36371310c4ff91&language=en-US&query=' + searchValue + '&page=1&include_adult=false')
+    else
+    {
+      fetch('https://api.themoviedb.org/3/search/'+ this.props.theFetch +'?api_key=a6d6e1a1d196277d3a36371310c4ff91&language=en-US&query=' + searchValue + '&page=1&include_adult=false')
       .then(resp => resp.json())
       .then(resp => {
         this.setState({searchResults: resp.results});
@@ -41,9 +42,8 @@ export default class MovieBox extends Component {
   render() {
     return(
       <div className="movieBox container">
-        <h1>NotFlix</h1>
         <MovieForm handleApiFetch={this.handleApiFetch} />
-        <MovieCard results={this.state.searchResults} />
+        <MovieCard results={this.state.searchResults} theFetch={this.props.theFetch} />
       </div>
     )
   }

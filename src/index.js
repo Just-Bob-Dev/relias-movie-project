@@ -11,8 +11,6 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 import Home from './components/Home';
-import Actor from './components/Actors';
-import Tv from './components/Tv';
 
 ReactDOM.render(
   <BrowserRouter>
