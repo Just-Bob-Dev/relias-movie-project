@@ -46,11 +46,11 @@ export default class MovieBox extends Component {
         <div>
           {this.props.theFetch != "person" ? (
             <div>
-              <MovieCard results={this.state.searchResults} />
+              <MovieCard results={this.state.searchResults} theFetch={this.props.theFetch}/>
             </div>
           ) : (
             <div>
-              <PersonCard results={this.state.searchResults}/>
+              <PersonCard results={this.state.searchResults} theFetch={this.props.theFetch}/>
             </div>
           )}
         </div>

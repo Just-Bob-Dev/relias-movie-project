@@ -35,11 +35,16 @@ export default class MovieCard extends Component {
         else{
           movie_image = this.state.imageBaseUrl + movie_image;
         }
+        //switching for name and title.
+        let movieOrTvTitle = '';
+        console.log("theFetch" + this.props.theFetch)
+        if(this.props.theFetch === "tv"){movieOrTvTitle = movie.name;}
+        else if (this.props.theFetch === 'movie') {movieOrTvTitle = movie.title;}
         return (
           <div key={movie.id} className="card col-lg-4">
             <img className="card-img-top" src={movie_image} alt={"Poster of " + movie.title} style={{height: 450 +"px", width: 300 + "px"}}/>
             <div className="card-block">
-              <h1 className="card-title">Title: {movie.title}</h1>
+              <h1 className="card-title">Title: {movieOrTvTitle}</h1>
               <p className="card-text">Popularity: {movie_rating}</p>
               <div className="progress">
                 <div className="progress-bar bg-info" role="progressbar" style={{width: movie_rating +"%", height: 20 +"px" }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{movie_rating}%</div>
