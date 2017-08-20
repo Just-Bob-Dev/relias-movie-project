@@ -27,7 +27,7 @@ export default class MovieForm extends Component {
     console.log(search_term);
     this.setState({searchParams: search_term});
     console.log(this.state.searchParams);
-    this.props.handleApiFetch(this.state.searchParams);
+    this.props.handleApiFetch(this.state.searchParams, this.props.theFetch);
     this.setState({searchParams:''});
   }
 
