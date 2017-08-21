@@ -20,16 +20,24 @@ export default class MovieBox extends Component {
     return(
       <div className="movieBox container">
         <MovieForm handleApiFetch={this.props.handleApiFetch} theFetch={this.props.theFetch}/>
-        <div>
-          {this.props.theFetch != "person" ? (
-            <div>
-              <MovieCard results={this.props.searchResults} searchVal={this.props.searchVal} theFetch={this.props.theFetch}/>
-            </div>
-          ) : (
-            <div>
-              <PersonCard results={this.props.searchResults} searchVal={this.props.searchVal} theFetch={this.props.theFetch}/>
-            </div>
-          )}
+        <div className="searched-checker">
+          {this.props.searched === true ? (
+          <div>
+            {this.props.theFetch != "person" ? (
+              <div>
+                <MovieCard results={this.props.searchResults} searchVal={this.props.searchVal} theFetch={this.props.theFetch} searched={this.props.searched}/>
+              </div>
+            ) : (
+              <div>
+                <PersonCard results={this.props.searchResults} searchVal={this.props.searchVal} theFetch={this.props.theFetch} searched={this.props.searched}/>
+              </div>
+            )}
+          </div>
+        ) : (
+          <div>
+            <h1>Search for your favorite Movies, TV shows, or Actors.</h1>
+          </div>
+        )}
         </div>
       </div>
     )

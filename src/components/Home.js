@@ -25,7 +25,8 @@ export default class Home extends Component {
         person: 'person'
       },
       searchResults: [],
-      searchVal: ''
+      searchVal: '',
+      searched: false
     }
 
   }
@@ -91,7 +92,7 @@ export default class Home extends Component {
       .then(resp => resp.json())
       .then(resp => {
         console.log("props: " + this.props.theFetch + ". Search Type: " + searchType);
-          this.setState({searchResults: resp.results, searchVal: searchValue});
+          this.setState({searchResults: resp.results, searchVal: searchValue, searched:true});
           console.log(this.state.searchResults);
       })
     }
@@ -115,7 +116,7 @@ export default class Home extends Component {
             </div>
           </div>
           <div>
-            <MovieBox theFetch={this.state.theFetch} searchResults={this.state.searchResults} handleApiFetch={this.handleApiFetch} searchVal={this.state.searchVal}/>
+            <MovieBox theFetch={this.state.theFetch} searchResults={this.state.searchResults} handleApiFetch={this.handleApiFetch} searchVal={this.state.searchVal} searched={this.state.searched}/>
           </div>
           <footer className="footer">
             <span className="footer-text">All content brought to you by <a href="https://www.themoviedb.org/">TMDb</a></span>
