@@ -7,7 +7,7 @@ export default class PersonCard extends Component {
 
     this.state = {
       //base url for displaying images. Fetch only return path after this.
-      imageBaseUrl: "https://image.tmdb.org/t/p/w300_and_h450_bestv2",
+      imageBaseUrl: "https://image.tmdb.org/t/p/w300_and_h450_bestv2"
     }
 }
 
@@ -24,7 +24,6 @@ export default class PersonCard extends Component {
       )
     }
     else{
-      if(results[0].title != undefined){return;}
        person_card = results.map((person) => {
         //error handling for movies searched without an image.
         let person_image = person.profile_path;
@@ -34,14 +33,14 @@ export default class PersonCard extends Component {
         else{
           person_image = this.state.imageBaseUrl + person_image;
         }
-        let knownFor_list = person.known_for.map((known) => {
-          let knownForName = '';
-          if(known.media_type === 'tv'){knownForName = known.name}
-          else if(known.media_type === 'movie'){knownForName = known.title}
-          return(
-            <li className="list-group-item" key={known.id}>{knownForName}</li>
-          )
-        })
+          let knownFor_list = person.known_for.map((known) => {
+            let knownForName = '';
+            if(known.media_type === 'tv'){knownForName = known.name}
+            else if(known.media_type === 'movie'){knownForName = known.title}
+            return(
+              <li className="list-group-item" key={known.id}>{knownForName}</li>
+            )
+          })
         return (
           <div key={person.id} className="card col-lg-4">
             <img className="card-img-top" src={person_image} alt={"Poster of " + person.name} style={{height: 450 +"px", width: 300 + "px"}} />
@@ -57,10 +56,9 @@ export default class PersonCard extends Component {
       }
     )
   }
-
     return(
       <div>
-        {results.length > 0 ? (
+        {person_card.length > 0 ? (
           <div className="card-deck">
             {person_card}
           </div>
