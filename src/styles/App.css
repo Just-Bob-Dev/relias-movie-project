@@ -1,9 +1,8 @@
 .card {
-  flex-basis: 33%;
   margin-top: 10px;
   margin-bottom: 10px;
   font-size: 2em;
-  background-color:lightgrey;
+  background-color: white;
   max-width: 320px;
   padding: 5px 10px;
 }
@@ -80,4 +79,23 @@ Link styles
 */
 Link {
   color: white;
+}
+
+/*
+Footer styles
+*/
+.footer {
+  height: 100px;
+  background-color: grey;
+  text-align: center;
+  color: white;
+  background-position: bottom;
+  bottom: 0;
+  margin-top: 35vh;
+  padding-top: 35px;
+}
+
+.footer-text {
+  color: white;
+  font-size: 2em;
 }

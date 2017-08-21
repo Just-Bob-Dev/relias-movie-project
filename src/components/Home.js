@@ -102,7 +102,7 @@ export default class Home extends Component {
 
   render() {
     return(
-      <div className="jumbotron-container">
+      <div>
         <div className="jumbotron jumbotron-fluid">
             <div className="container">
               <h1 className="display-3">NotFlix</h1>
@@ -117,6 +117,9 @@ export default class Home extends Component {
           <div>
             <MovieBox theFetch={this.state.theFetch} searchResults={this.state.searchResults} handleApiFetch={this.handleApiFetch} searchVal={this.state.searchVal}/>
           </div>
+          <footer className="footer">
+            <span className="footer-text">All content brought to you by <a href="https://www.themoviedb.org/">TMDb</a></span>
+          </footer>
         </div>
     )
   }
