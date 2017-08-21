@@ -32,13 +32,17 @@ export default class MovieForm extends Component {
   }
 
   render() {
+    let placeholderTag = '';
+    if(this.props.theFetch === 'movie'){placeholderTag = 'Search for a Movie';}
+    else if(this.props.theFetch === 'tv'){placeholderTag = 'Search for a TV Show';}
+    else if(this.props.theFetch === 'person'){placeholderTag = 'Search for an Actor';}
     return(
       <div>
         <form onSubmit={this.handleMovieFormSubmit} >
           <div className="form-group">
-            <label>Search</label>
-            <input className="form-control" value={this.state.searchParams} onChange={this.handleSearchChange} placeholder="Search for Movie"/>
-            <button className="btn" type="submit">Search</button>
+            <label className="search-label">Search</label>
+            <input className="form-control" value={this.state.searchParams} onChange={this.handleSearchChange} placeholder={placeholderTag} />
+            <button className="btn btn-primary btn-search" type="submit">Search</button>
           </div>
         </form>
       </div>

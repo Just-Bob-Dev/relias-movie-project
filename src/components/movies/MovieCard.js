@@ -19,7 +19,7 @@ export default class MovieCard extends Component {
     if(results === null || results === undefined ){
       return(
         <div>
-          <h1>Im Sorry there is no content</h1>
+          <h1>Search your favorite Movies, TV shows or Actors.</h1>
         </div>
       )
     }
@@ -37,22 +37,29 @@ export default class MovieCard extends Component {
         }
         //switching for name and title.
         let movieOrTvTitle = '';
+        let releaseDate = '';
         console.log("theFetch" + this.props.theFetch)
-        if(this.props.theFetch === "tv"){movieOrTvTitle = movie.name;}
-        else if (this.props.theFetch === 'movie') {movieOrTvTitle = movie.title;}
+        if(this.props.theFetch === "tv"){
+          movieOrTvTitle = movie.name;
+          releaseDate = movie.first_air_date;
+        }
+        else if (this.props.theFetch === 'movie'){
+          movieOrTvTitle = movie.title;
+          releaseDate = movie.release_date;
+        }
         return (
           <div key={movie.id} className="card col-lg-4">
             <img className="card-img-top" src={movie_image} alt={"Poster of " + movie.title} style={{height: 450 +"px", width: 300 + "px"}}/>
             <div className="card-block">
               <h1 className="card-title">Title: {movieOrTvTitle}</h1>
-              <p className="card-text">Popularity: {movie_rating}</p>
+              <p className="card-text">Popularity:</p>
               <div className="progress">
                 <div className="progress-bar bg-info" role="progressbar" style={{width: movie_rating +"%", height: 20 +"px" }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{movie_rating}%</div>
               </div>
               <p className="car-text">Overview: {movie.overview}</p>
             </div>
             <div className="card-footer">
-              <small className="text-muted">Release Date: {movie.release_date}</small>
+              <small className="text-muted">Release Date: {releaseDate}</small>
             </div>
           </div>
         )
@@ -61,9 +68,15 @@ export default class MovieCard extends Component {
 
     return(
       <div>
+        {results.length > 0 ? (
           <div className="card-deck">
             {movie_card}
           </div>
+        ) : (
+          <div>
+            <h1 className='no-results-search'>Im sorry, we looked around and we didn't find anything on {this.props.searchVal}</h1>
+          </div>
+        )}
       </div>
     )
   }

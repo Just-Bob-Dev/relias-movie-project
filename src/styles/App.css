@@ -4,26 +4,34 @@
   font-size: 2em;
 }
 
+/*
+Button styling
+*/
 .btn-primary, .btn-lg, .btn:focus {
-  list-style-type: none;
+  list-style: none;
   text-decoration: none;
-  color: #0275D8;
   height: 100px;
   width: 250px;
   margin: 2%;
-  background-color: white;
-  border: white;
   font-size: 3em;
-  z-index:1;
-  padding-top: 20px;
+  background-color: white;
+  color: #0275D8;
+  border: white;
 }
 
-.btn-text {
-  margin-top: 15vh;
+.btn-search {
+  background-color: #0275D8;
+  color: white;
+  height: 60px;
+  width: 150px;
+  margin: 2% 0%;
+  justify-content: center;
 }
-
+/*
+Jumbotron header styling.
+*/
 .jumbotron{
-  height: 30vh;
+  height: 30%;
   background-color: #cc1a1a;
   color: white;
   text-decoration-color: white;
@@ -41,14 +49,27 @@
   content: '';
   opacity: .5;
   z-index:-1;
-
   opacity: 0.5;
   position: fixed;
   z-index: -1;
+  border-radius: 5px;
+}
+
+/* search input and label styling*/
+
+.search-label {
+  font-size: 3em;
+}
+
+.form-control {
+  font-size: 3em;
+  height: 40%;
 }
 
 
-
+/*
+Link styles
+*/
 Link {
   color: white;
 }

@@ -28,7 +28,7 @@ export default class MovieBox extends Component {
       fetch('https://api.themoviedb.org/3/search/'+ searchType +'?api_key=a6d6e1a1d196277d3a36371310c4ff91&language=en-US&query=' + searchValue + '&page=1&include_adult=false')
       .then(resp => resp.json())
       .then(resp => {
-        this.setState({searchResults: resp.results});
+        this.setState({searchResults: resp.results, searchVal: searchValue});
         console.log(this.state.searchResults)
       })
     }
@@ -46,11 +46,11 @@ export default class MovieBox extends Component {
         <div>
           {this.props.theFetch != "person" ? (
             <div>
-              <MovieCard results={this.state.searchResults} theFetch={this.props.theFetch}/>
+              <MovieCard results={this.state.searchResults} searchVal={this.state.searchVal} theFetch={this.props.theFetch}/>
             </div>
           ) : (
             <div>
-              <PersonCard results={this.state.searchResults} theFetch={this.props.theFetch}/>
+              <PersonCard results={this.state.searchResults} searchVal={this.state.searchVal} theFetch={this.props.theFetch}/>
             </div>
           )}
         </div>

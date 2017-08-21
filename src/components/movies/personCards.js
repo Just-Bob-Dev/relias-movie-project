@@ -14,15 +14,18 @@ export default class PersonCard extends Component {
   render() {
     let results = this.props.results;
     //checks if fetch was null.
+    let person_card = [];
     console.log("results: " + results);
-    if(results === null || results === undefined || results[0].known_for === null || results[0].known_for === undefined){
+    if(results === null || results === 0 || results === undefined || results[0] === ''){
       return(
         <div>
-          <h1>We apologize, there seems to be no content this search.</h1>
+          <h1>Search your favorite Movies, TV shows or Actors.</h1>
         </div>
       )
     }
-    let person_card = results.map((person) => {
+    else{
+      if(results[0].title != undefined){return;}
+       person_card = results.map((person) => {
         //error handling for movies searched without an image.
         let person_image = person.profile_path;
         if(person_image === null){
@@ -53,12 +56,19 @@ export default class PersonCard extends Component {
         )
       }
     )
+  }
 
     return(
       <div>
+        {results.length > 0 ? (
           <div className="card-deck">
             {person_card}
           </div>
+        ) : (
+          <div>
+            <h1>Im sorry, we look around and didn't find anything about {this.props.searchVal}</h1>
+          </div>
+        )}
       </div>
     )
   }
