@@ -1,3 +1,11 @@
+* {
+  -webkit-transition: all .4s ease;
+  -moz-transition: all .4s ease;
+  -o-transition: all .4s ease;
+  transition: all .4s ease;
+}
+
+
 .card {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -5,6 +13,11 @@
   background-color: white;
   max-width: 320px;
   padding: 5px 10px;
+}
+
+.card:hover {
+  background-color: lightgrey;
+
 }
 
 .card-deck {
